@@ -6,7 +6,6 @@ import os
 app = Flask(__name__)
 
 
-os.getenv('MONGO_URI')
 client = MongoClient(os.getenv('MONGO_URI'))
 db = client.test_database
 posts = db.posts
@@ -20,6 +19,10 @@ def insert():
 @app.route('/healthz', methods=["GET"])
 def healthz():
     return "OK"
+
+@app.route('/ping', methods=["GET"])
+def pong():
+    return os.getenv('MONGO_URI')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
