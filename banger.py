@@ -17,5 +17,9 @@ def insert():
     record_id = posts.insert_one(data).inserted_id
     return jsonify({"id": str(record_id)})
 
+@app.route('/healthz', methods=["GET"])
+def insert():
+    return "OK"
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

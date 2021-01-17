@@ -3,5 +3,4 @@ kind: ConfigMap
 metadata:
   name: environment-variables
 data:
-  THIS_SERVICE: $SERVICE_NAME
-  BRANCH: $NAMESPACE
+  MONGO_URI: $MONGO_URI
