@@ -37,6 +37,7 @@ jobs:
         export BUILD_IMAGE=$REGISTRY_HOSTNAME/${{ secrets.GCP_PROJECT_ID }}/$SERVICE_NAME:$SHORT_SHA
         export HOSTNAME=$NAMESPACE.$TLD
         export CERT_NAME=wildcard-${TLD/./-}
+        export MONGO_URI=${{ secrets.GCP_PROJECT_ID }}
 
         echo "SHORT_SHA=$SHORT_SHA"
         echo "SERVICE_NAME=$SERVICE_NAME"
@@ -51,6 +52,7 @@ jobs:
         echo "BUILD_IMAGE=$BUILD_IMAGE" >> $GITHUB_ENV
         echo "HOSTNAME=$HOSTNAME" >> $GITHUB_ENV
         echo "CERT_NAME=$CERT_NAME" >> $GITHUB_ENV
+        echo "MONGO_URI=$MONGO_URI" >> $GITHUB_ENV
 
     - name: Checkout
       uses: actions/checkout@v2
