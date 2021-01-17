@@ -18,7 +18,7 @@ def insert():
     return jsonify({"id": str(record_id)})
 
 @app.route('/healthz', methods=["GET"])
-def insert():
+def healthz():
     return "OK"
 
 if __name__ == "__main__":
